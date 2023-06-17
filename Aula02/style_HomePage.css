@@ -1,0 +1,33 @@
+.home-page_title{
+    display: flex;
+    background-color: black;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.img-container{ 
+    display: flex;
+    justify-content: center;
+}
+.img-container img{
+    width: 320px;
+    height: 300px;
+
+}
+
+p{
+    font-size: 25px;
+}
+
+body{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
