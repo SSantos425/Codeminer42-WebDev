@@ -29,7 +29,10 @@
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-  
+  .dropdown{
+   position: relative;
+   width: 200px;
+  }
 .dropdown-menu {
     display: none;
     position: absolute;
