@@ -1,9 +1,11 @@
 h1{
+    color: white;
     text-align: center;
 }
 
 body{
-    background-color: rgb(255, 248, 248);
+    /*background-color: rgb(255, 248, 248);*/
+    background-color: black;
 }
 
 .img-container{ 
