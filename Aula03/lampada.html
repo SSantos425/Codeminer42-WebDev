@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisca Pisca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to Pisca Pisca !!!</h1>
+
+
+    <div class="img-container">
+        <img id="OFF" src="pixeledLampOFF.png" alt="LAMP_OFF">
+        <img id="ON" src= "pixeledLampON.png" alt="LAMP_ON">
+    </div>
+
+    <div class="button-container">
+        <button id ="button">Lights ON</button>
+        <button id ="piscapisca">Pisca Pisca</button>
+    </div>
+    
+    <script>
+        let i;
+        let ligado  = false;
+        let lampbutton = document.querySelector('#button');
+        let lampButtonPisca = document.querySelector('#piscapisca');
+
+        let lampButtonON = document.querySelector('#ON');
+        let lampButtonOFF = document.querySelector('#OFF');
+
+        lampButtonPisca.addEventListener('click', () => {
+            
+            if (i) {
+                clearInterval(i);
+                i = null;
+                lampButtonOFF.style.display = 'block';
+                lampButtonPisca.textContent = 'Pisca Pisca';
+            }else {
+                i = setInterval(() => {
+                   
+                    if (lampButtonON.style.display === 'block') {
+                        lampButtonON.style.display = 'none';
+                    }else{
+                        lampButtonON.style.display = 'block';
+                    }
+
+                    if (lampButtonOFF.style.display === 'block') {
+                        lampButtonOFF.style.display = 'none';
+                    }else{
+                        lampButtonOFF.style.display = 'block';
+                    }
+                    lampButtonPisca.textContent = 'Stop';
+                    
+                }, 500);
+                
+            }
+            
+        });
+
+        lampbutton.addEventListener('click',() => {
+            if (ligado) {
+                lampButtonON.style.display = 'none';
+                lampButtonOFF.style.display = 'block';
+                ligado = false;
+                lampbutton.textContent = 'Lights ON';
+            }else{
+                lampButtonON.style.display = 'block';
+                lampButtonOFF.style.display = 'none';
+                ligado = true;
+                lampbutton.textContent = 'Lights OFF';
+            }
+        });
+        
+    </script>
+        
+    
+    
+    
+</body>
+</html>
