@@ -1,0 +1,34 @@
+h1{
+    color: white;
+    text-align: center;
+}
+
+body{
+    /*background-color: rgb(255, 248, 248);*/
+    background-color: black;
+}
+
+.img-container{ 
+    display: flex;
+    justify-content: center;
+}
+
+#ON{
+    display: none;
+}
+
+.img-container img{
+    width: 600px;
+    height: 400px;
+
+}
+
+
+.button-container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-between;
+    margin-left: 45%;
+    margin-right: 45%;
+}
