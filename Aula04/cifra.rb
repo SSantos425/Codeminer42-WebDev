@@ -1,22 +1,22 @@
-def caesar_cipher(cifra, number)
-  vetor_alfabeto = ('a'..'z').to_a
-  vetor_cifra = cifra.chars
+def caesar_cipher(cipher, number)
+  vector_alphabet = ('a'..'z').to_a
+  vector_cipher = cipher.chars
 
-  vetor_cifra.each_with_index do |c, i|
-    vetor_alfabeto.each_with_index do |a, j|
-      if (c == a)
-        novo_indice = (j + number) % vetor_alfabeto.length
-        vetor_cifra[i] = vetor_alfabeto[novo_indice]
-        break
-      elsif(c == a.upcase)
-          novo_indice = (j + number) % vetor_alfabeto.length
-          vetor_cifra[i] = vetor_alfabeto[novo_indice].upcase
+  vector_cipher.each_with_index do |character, vector_position|
+    vector_alphabet.each_with_index do |alphabet, alphabet_position|
+
+      if character == alphabet
+        novo_indice = (alphabet_position + number) % vector_alphabet.length
+        vector_cipher[vector_position] = vector_alphabet[novo_indice]
+      elsif character == alphabet.upcase
+        novo_indice = (alphabet_position + number) % vector_alphabet.length
+        vector_cipher[vector_position] = vector_alphabet[novo_indice].upcase
       end
 
     end
   end
 
-  puts vetor_cifra.join('')
+  puts vector_cipher.join('')
 end
   
 caesar_cipher("What a string!", 5)
