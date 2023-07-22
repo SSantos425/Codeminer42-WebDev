@@ -1,6 +1,6 @@
 class Status < ApplicationRecord
     belongs_to :user
-    belongs_to :status_answer , class_name: "Status"
+    belongs_to :status_answer , class_name: "Status", optional: true
 
-    has_many :medium, limit: 4
+    has_many :medium
 end
