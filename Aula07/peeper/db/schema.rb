@@ -23,8 +23,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_190929) do
   create_table "media", force: :cascade do |t|
     t.integer "type"
     t.string "url"
+    t.integer "user_id"
+    t.integer "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["status_id"], name: "index_media_on_status_id"
+    t.index ["user_id"], name: "index_media_on_user_id"
   end
 
   create_table "statuses", force: :cascade do |t|

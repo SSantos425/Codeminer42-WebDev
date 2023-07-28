@@ -1,7 +1,6 @@
 class User < ApplicationRecord
+    has_one :medium
     has_many :statuses
-  
-    #has_many :connections
 
     has_many :follower_connections, class_name: 'Connection', foreign_key: 'followed_id'
     has_many :followers, through: :follower_connections, source: :follower

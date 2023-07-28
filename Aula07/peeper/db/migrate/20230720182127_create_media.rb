@@ -3,6 +3,8 @@ class CreateMedia < ActiveRecord::Migration[7.0]
     create_table :media do |t|
       t.integer :type
       t.string :url
+      t.references :user
+      t.references :status
 
       t.timestamps
     end

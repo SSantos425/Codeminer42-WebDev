@@ -1,4 +1,5 @@
 class Status < ApplicationRecord
+    validates :medium, length: { maximum: 4 }
     belongs_to :user
 
     belongs_to :in_response_to, class_name: 'Status', optional: true

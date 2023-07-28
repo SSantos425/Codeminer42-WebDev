@@ -1,3 +1,3 @@
 class Medium < ApplicationRecord
-    belongs_to :status
+    belongs_to :status , optional: true
 end
