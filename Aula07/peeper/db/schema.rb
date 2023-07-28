@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_182127) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_190929) do
+  create_table "connections", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_connections_on_followed_id"
+    t.index ["follower_id"], name: "index_connections_on_follower_id"
+  end
+
   create_table "media", force: :cascade do |t|
     t.integer "type"
     t.string "url"
@@ -21,8 +30,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_182127) do
   create_table "statuses", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
+    t.integer "in_response_to_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["in_response_to_id"], name: "index_statuses_on_in_response_to_id"
     t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
@@ -31,11 +42,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_182127) do
     t.string "display_name"
     t.text "bio"
     t.date "born_at"
-    t.integer "follower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id"], name: "index_users_on_follower_id"
   end
 
-  add_foreign_key "users", "users", column: "follower_id"
+  add_foreign_key "connections", "users", column: "followed_id"
+  add_foreign_key "connections", "users", column: "follower_id"
+  add_foreign_key "statuses", "statuses", column: "in_response_to_id"
 end

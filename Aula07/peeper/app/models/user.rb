@@ -1,4 +1,12 @@
 class User < ApplicationRecord
     has_many :statuses
-    has_many :followers, class_name: "User", foreign_key: "follower_id", dependent: :destroy
+  
+    #has_many :connections
+
+    has_many :follower_connections, class_name: 'Connection', foreign_key: 'followed_id'
+    has_many :followers, through: :follower_connections, source: :follower
+
+    has_many :following_connections, class_name: 'Connection', foreign_key: 'follower_id'
+    has_many :followings, through: :following_connections, source: :followed
 end
+  
