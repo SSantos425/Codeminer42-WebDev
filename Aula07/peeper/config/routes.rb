@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #user
   get '/users', to: 'users#index'
   
   get '/users/new', to: 'users#new', as: 'new_user'
@@ -8,6 +9,16 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to:'users#destroy', as: 'destroy_user'
+
+  #status
+  get '/statuses', to: 'statuses#index'
+  get '/statuses/new', to: 'statuses#new', as: 'new_status'
+  get '/statuses/:id', to: 'statuses#show', as: 'status'
+  post '/statuses', to: 'statuses#create'
+
+  get '/statuses/:id/edit', to: 'statuses#edit', as: 'edit_status'
+  patch '/statuses/:id', to: 'statuses#update'
+  delete '/statuses/:id', to:'statuses#destroy', as: 'destroy_status'
 
 
 

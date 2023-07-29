@@ -9,3 +9,8 @@
 sam = User.create(handle: "sam", display_name: "samuel",bio:"likes DC",born_at:1998-06-20)
 gabi = User.create(handle: "gabi",display_name: "Shingeki",bio:"Dont like the potato girl",born_at:1998-06-20)
 james = User.create(handle: "james",display_name: "watson",bio:"sidekick of sherlock",born_at:1998-06-20)
+
+sam_status = Status.create(body: "Hi everybody",user: sam)
+gabi_status = Status.create(body: "Good After",user: sam)
+
+avatar = Medium.create(url:"mango_tree")
